@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><c:out value="${title}"/></title>  <!-- 컨트롤러가 넣어준 제목 -->
-    <link rel="stylesheet" href="<c:url value='/css/common/common.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/common/header.css'/>">
 </head>
 <body>
 <!-- 헤더 조각을 항상 포함 -->

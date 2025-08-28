@@ -1,3 +1,97 @@
+body {
+  margin: 0;
+}
 
+a,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+}
+
+.header {
+  background: #6e6e6e;
+  border-bottom: 2px solid #b8b8b8;
+}
+.header .topMenu {
+  position: relative;
+  z-index: 10;
+}
+.header .topMenuList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header .topMenuListItem {
+  position: relative;
+  padding: 0 12px;
+}
+.header .topMenuListItem > a, .header .topMenuListItem {
+  font-weight: 400;
+  color: #f1f1f1;
+  text-decoration: none;
+  cursor: default;
+}
+.header .topMenuListItem .visualPadding {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 220px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  pointer-events: none;
+  max-height: 60vh;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2 {
+  background: #6e6e6e;
+  border: 1px solid #b8b8b8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  padding-inline-start: initial;
+  width: 90%;
+  margin-left: 5px;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2Item {
+  margin: 0;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2ItemLink {
+  display: block;
+  padding: 10px 16px;
+  color: #f1f1f1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2ItemLink:hover {
+  background: #eef2f7;
+  color: #0f172a;
+}
+.header .topMenuListItem:hover > .visualPadding, .header .topMenuListItem:focus-within > .visualPadding {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .topMenu .topMenuListItem .topMenuDepth2 {
+    transition: none;
+    transform: none;
+  }
+}
 
 /*# sourceMappingURL=header.css.map */
