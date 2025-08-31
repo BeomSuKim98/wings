@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="/css/components/header.css"
+        rel="stylesheet"
+        th:href="@{/css/components/header.css}">
+  <link href="/css/components/footer.css"
+        rel="stylesheet"
+        th:href="@{/css/components/footer.css}">
+  <title th:text="${title} ?: 'MySite'">MySite</title>
+</head>
+<body>
+<th:block th:replace="~{/common/header :: siteHeader}"></th:block>
+<main>
+<!--  npm run watch-css 감시명령어-->
+  <p>테스트</p>
+</main>
+<th:block th:replace="~{/common/footer :: siteFooter}"></th:block>
+</body>
+</html>

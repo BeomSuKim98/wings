@@ -1,0 +1,157 @@
+@use '../foundation' as f;
+@use '../base/reset';
+
+/* 헤더 컨테이너: rem 기반 크기 제어 */
+.header {
+  width: 100%;
+  margin-inline: auto;
+
+  background: f.$menu-bg;
+  border-bottom: f.rem(2) solid f.$menu-border; /* 2px → rem */
+  color: f.$menu-link;
+  font-size: f.rem(14);       /* 텍스트 rem 고정 */
+  line-height: 1.5;
+  padding: 0 f.rem(16);       /* 좌우 여백도 rem */
+
+  .topMenu {
+    position: relative;
+    z-index: 10;
+
+    &List {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: f.rem(12);         /* 항목 간격 rem */
+    }
+
+    &ListItem {
+      position: relative;
+      padding: 0 f.rem(12);   /* 좌우 패딩 rem */
+
+      /* 1차 메뉴 텍스트(또는 링크) */
+      > a,
+      & {
+        font-weight: 400;
+        color: f.$menu-link;
+        text-decoration: none;
+        cursor: default;
+        font-size: f.rem(14); /* 항목 텍스트 rem */
+      }
+
+      .visualPadding {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        min-width: f.rem(220);      /* 220px → rem */
+        /* 드롭다운 전체 폭도 rem로 제어(가변을 원하면 min/max로 조합) */
+        width: f.rem(260);          /* 260px → rem */
+        margin: 0;
+        padding: f.rem(8) 0;        /* 위아래 여백 rem */
+        list-style: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.625rem); /* -10px → -0.625rem */
+        transition:
+          opacity .28s ease,
+          transform .28s ease,
+          visibility .28s;
+        pointer-events: none;
+        max-height: 60vh;           /* 높이는 뷰포트 기반 유지 */
+        overflow: auto;
+        overscroll-behavior: contain;
+
+        /* ▼ 2차 메뉴 */
+        .topMenuDepth2 {
+          background: f.$menu-bg;
+          border: 1px solid f.$menu-border; /* 보더는 1px 유지(시각 선명도) */
+          box-shadow: f.$menu-shadow;
+          border-radius: f.rem(6);
+          padding-inline-start: initial;
+          /* 위에서 width rem 지정했으므로 내부는 100%로 채움 */
+          width: 100%;
+          margin-left: f.rem(5);
+
+          &Item {
+            margin: 0;
+
+            &Link {
+              display: block;
+              padding: f.rem(10) f.rem(16); /* 링크 패딩 rem */
+              color: f.$menu-link;
+              text-decoration: none;
+              white-space: nowrap;
+              font-size: f.rem(14);
+
+              &:hover {
+                background: f.$menu-hover-bg;
+                color: f.$menu-link-hover;
+              }
+            }
+          }
+        }
+      }
+
+      /* ▲ 호버/포커스 시 보여주기 */
+      &:hover > .visualPadding,
+      &:focus-within > .visualPadding {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+/* 모션 민감 사용자 배려 */
+@include f.reduce-motion {
+  .header .topMenu .topMenuListItem .topMenuDepth2 {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ====== 반응형 (rem 기반 폭 상한만 조절) ====== */
+
+/* ≤ 320px */
+@include f.mq($to: f.$bp-mobile) {
+	html { font-size: 12px; }
+  .header {
+    padding: 0 f.rem(12);
+  }
+
+  .header .topMenu .topMenuList { flex-wrap: wrap; }
+
+  .header .topMenu .topMenuListItem { padding: 0 f.rem(8); }
+
+  .header .topMenu .topMenuListItem .visualPadding {
+    min-width: f.rem(200);
+    width: f.rem(240); /* 모바일에선 좀 더 좁게 */
+  }
+}
+
+/* 321px ~ 1080px */
+@include f.mq($from: calc(f.$bp-mobile + 1px), $to: f.$bp-tablet) {
+	html { font-size: 14px; }
+
+  .header .topMenu .topMenuListItem {
+    padding: 0 f.rem(10);
+  }
+
+  .header .topMenu .topMenuListItem .visualPadding {
+    width: f.rem(260);
+  }
+}
+
+/* > 1080px */
+@include f.mq($from: calc(f.$bp-tablet + 1px)) {
+	html { font-size: 16px; }
+
+  .header .topMenu .topMenuListItem {
+    padding: 0 f.rem(12);
+  }
+
+  .header .topMenu .topMenuList { gap: f.rem(14); }
+}

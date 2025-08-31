@@ -1,0 +1,19 @@
+// 범용 미디어쿼리
+@mixin mq($from: null, $to: null) {
+  @if $from != null and $to != null {
+    @media (min-width: $from) and (max-width: $to) { @content; }
+  } @else if $from != null {
+    @media (min-width: $from) { @content; }
+  } @else if $to != null {
+    @media (max-width: $to) { @content; }
+  } @else {
+    @content;
+  }
+}
+
+// 모션 민감 사용자 배려
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

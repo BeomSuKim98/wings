@@ -1,0 +1,12 @@
+spring:
+  output:
+    ansi:
+      enabled: always # 콘솔 색상 변경
+  application:
+    name: basic1
+
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/ # 템플릿 파일 경로
+#server:
+#  port: 8030

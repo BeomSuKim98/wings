@@ -1,0 +1,159 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+}
+
+a,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+}
+
+/* 헤더 컨테이너: rem 기반 크기 제어 */
+.header {
+  width: 100%;
+  margin-inline: auto;
+  background: #6e6e6e;
+  border-bottom: 0.125rem solid #b8b8b8; /* 2px → rem */
+  color: #f1f1f1;
+  font-size: 0.875rem; /* 텍스트 rem 고정 */
+  line-height: 1.5;
+  padding: 0 1rem; /* 좌우 여백도 rem */
+}
+.header .topMenu {
+  position: relative;
+  z-index: 10;
+}
+.header .topMenuList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 항목 간격 rem */
+}
+.header .topMenuListItem {
+  position: relative;
+  padding: 0 0.75rem; /* 좌우 패딩 rem */
+  /* 1차 메뉴 텍스트(또는 링크) */
+  /* ▲ 호버/포커스 시 보여주기 */
+}
+.header .topMenuListItem > a, .header .topMenuListItem {
+  font-weight: 400;
+  color: #f1f1f1;
+  text-decoration: none;
+  cursor: default;
+  font-size: 0.875rem; /* 항목 텍스트 rem */
+}
+.header .topMenuListItem .visualPadding {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 13.75rem; /* 220px → rem */
+  /* 드롭다운 전체 폭도 rem로 제어(가변을 원하면 min/max로 조합) */
+  width: 16.25rem; /* 260px → rem */
+  margin: 0;
+  padding: 0.5rem 0; /* 위아래 여백 rem */
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.625rem); /* -10px → -0.625rem */
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  pointer-events: none;
+  max-height: 60vh; /* 높이는 뷰포트 기반 유지 */
+  overflow: auto;
+  overscroll-behavior: contain;
+  /* ▼ 2차 메뉴 */
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2 {
+  background: #6e6e6e;
+  border: 1px solid #b8b8b8; /* 보더는 1px 유지(시각 선명도) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.375rem;
+  padding-inline-start: initial;
+  /* 위에서 width rem 지정했으므로 내부는 100%로 채움 */
+  width: 100%;
+  margin-left: 0.3125rem;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2Item {
+  margin: 0;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2ItemLink {
+  display: block;
+  padding: 0.625rem 1rem; /* 링크 패딩 rem */
+  color: #f1f1f1;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+.header .topMenuListItem .visualPadding .topMenuDepth2ItemLink:hover {
+  background: #eef2f7;
+  color: #0f172a;
+}
+.header .topMenuListItem:hover > .visualPadding, .header .topMenuListItem:focus-within > .visualPadding {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* 모션 민감 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+  .header .topMenu .topMenuListItem .topMenuDepth2 {
+    transition: none;
+    transform: none;
+  }
+}
+/* ====== 반응형 (rem 기반 폭 상한만 조절) ====== */
+/* ≤ 320px */
+@media (max-width: 320px) {
+  html {
+    font-size: 12px;
+  }
+  .header {
+    padding: 0 0.75rem;
+  }
+  .header .topMenu .topMenuList {
+    flex-wrap: wrap;
+  }
+  .header .topMenu .topMenuListItem {
+    padding: 0 0.5rem;
+  }
+  .header .topMenu .topMenuListItem .visualPadding {
+    min-width: 12.5rem;
+    width: 15rem; /* 모바일에선 좀 더 좁게 */
+  }
+}
+/* 321px ~ 1080px */
+@media (min-width: 321px) and (max-width: 1080px) {
+  html {
+    font-size: 14px;
+  }
+  .header .topMenu .topMenuListItem {
+    padding: 0 0.625rem;
+  }
+  .header .topMenu .topMenuListItem .visualPadding {
+    width: 16.25rem;
+  }
+}
+/* > 1080px */
+@media (min-width: 1081px) {
+  html {
+    font-size: 16px;
+  }
+  .header .topMenu .topMenuListItem {
+    padding: 0 0.75rem;
+  }
+  .header .topMenu .topMenuList {
+    gap: 0.875rem;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

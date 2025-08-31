@@ -1,0 +1,99 @@
+@use '../foundation' as f;
+@use '../base/reset';
+
+footer {
+  /* 폭: %로 채우되 상한을 rem으로 고정하고 중앙정렬 */
+  width: 100%;
+  margin-inline: auto;
+  color: f.$menu-link;
+  background-color: f.$menu-bg;
+  border-top: 1px solid f.$menu-border;
+  box-shadow: f.$menu-shadow;
+  font-size: f.rem(14);
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: f.rem(10);
+    gap: f.rem(16);
+    padding: 1rem; // 위·아래 1rem, 좌·우 1rem
+
+    .footer-left a {
+      color: f.$menu-link;
+      text-decoration: none;
+      &:hover { color: f.$menu-link-hover; }
+    }
+
+    .footer-right .footer-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: f.rem(15);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        color: f.$menu-link;
+        text-decoration: none;
+        padding: f.rem(4) f.rem(8);
+        border-radius: f.rem(4);
+        transition: all .2s ease;
+
+        &:hover {
+          background-color: f.$menu-hover-bg;
+          color: f.$menu-link-hover;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: f.rem(12);
+    color: f.$menu-link;
+    padding: f.rem(8) 0; // padding-block: 0.5rem;
+  }
+}
+
+/* ≤ 320px (모바일 초소형) */
+@include f.mq($to: f.$bp-mobile) {
+  html { font-size: 12px; } // rem 스케일 고정
+  footer {
+
+    .footer-top {
+      flex-direction: column;
+      align-items: stretch;
+      gap: f.rem(10);
+
+      .footer-right .footer-menu {
+        justify-content: space-between;
+        gap: f.rem(8);
+
+        li a {
+          padding: f.rem(6) f.rem(8);
+          font-size: f.rem(13);
+        }
+      }
+    }
+
+    .footer-bottom { font-size: f.rem(11); }
+  }
+}
+
+/* 321px ~ 1080px (모바일~태블릿) */
+@include f.mq($from: calc(f.$bp-mobile + 1px), $to: f.$bp-tablet) {
+  html { font-size: 14px; }
+  footer {
+    .footer-top .footer-right .footer-menu { gap: f.rem(12); }
+  }
+}
+
+/* > 1080px (데스크톱) */
+@include f.mq($from: calc(f.$bp-tablet + 1px)) {
+  html { font-size: 16px; }
+  footer {
+    .footer-top { gap: f.rem(20); }
+    .footer-bottom { font-size: f.rem(12); }
+  }
+}
