@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
+  <!--  npm run watch-css 감시명령어-->
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<!--  제이쿼리-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!--  js 삽입-->
+  <script defer th:src="@{/js/tabController.js}"></script>
+
   <link href="/css/components/header.css"
         rel="stylesheet"
         th:href="@{/css/components/header.css}">
@@ -12,11 +20,25 @@
   <title th:text="${title} ?: 'MySite'">MySite</title>
 </head>
 <body>
-<th:block th:replace="~{/common/header :: siteHeader}"></th:block>
-<main>
-<!--  npm run watch-css 감시명령어-->
-  <p>테스트</p>
-</main>
-<th:block th:replace="~{/common/footer :: siteFooter}"></th:block>
+  <th:block th:replace="~{/common/header :: siteHeader}"></th:block>
+  <main id="LayoutTabmenu" hx-push-url="true">
+    <div id="TabmenuTop">
+      <div class="tab active"
+           th:id="'tab-' + ${tabId}"
+           th:attr="data-tab-id=${tabId}">
+        <span th:text="${title}">메인화면</span>
+        <button type="button" class="tab-close" title="닫기">×</button>
+      </div>
+    </div>
+
+    <div id="TabmenuBottom">
+      <div class="tab-pane"
+           th:id="'pane-' + ${tabId}">
+        <!-- 첫 화면 컨텐츠 프래그먼트 주입 -->
+        <div th:replace="~{${repo} :: ${frag}}"></div>
+      </div>
+    </div>
+  </main>
+  <th:block th:replace="~{/common/footer :: siteFooter}"></th:block>
 </body>
 </html>

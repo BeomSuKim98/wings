@@ -12,8 +12,21 @@ public class PageController {
 
     @GetMapping("/home")
     public String home(Model model){
-        model.addAttribute("title","홈");
+        model.addAttribute("tabId", "home");
+        model.addAttribute("title", "메인화면");
+        model.addAttribute("repo", "home/index");
+        model.addAttribute("frag", "content");
         return "layout";
     }
 
+    @GetMapping("/home/index")
+    public String MainPage(Model model) {
+        return "home/index :: content";
+    }
+
+    @GetMapping("/home/test")
+    public String test(Model model) {
+        return "home/test :: content";
+    }
 }
+

@@ -11,7 +11,7 @@
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">새 이상체 작성</a></li>
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">새 인물 작성</a></li>
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">새 회사 작성</a></li>
-            <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">기존 이상체 불러오기</a></li>
+            <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">새 사건 작성</a></li>
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">설정</a></li>
 
           </ul>
@@ -31,8 +31,18 @@
         이동(G)
         <div class="visualPadding">
           <ul class="topMenuDepth2">
-            <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">메인 화면</a></li>
-            <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">이상체 화면</a></li>
+            <li class="topMenuDepth2Item">
+              <a class="topMenuDepth2ItemLink open-tab"
+                 th:href="@{/home/index}"
+                 data-tab-id="home"
+                 data-title="메인화면"
+                 th:attr="data-url=@{/home/index}">메인 화면</a></li>
+            <li class="topMenuDepth2Item">
+              <a class="topMenuDepth2ItemLink open-tab"
+                 th:href="@{/home/test}"
+                 data-tab-id="test"
+                 data-title="테스트"
+                 th:attr="data-url=@{/home/test}">테스트</a></li>
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">인물 화면</a></li>
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">기업 화면</a></li>
             <li class="topMenuDepth2Item"><a class="topMenuDepth2ItemLink" href="#">지리 화면</a></li>

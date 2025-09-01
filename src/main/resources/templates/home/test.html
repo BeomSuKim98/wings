@@ -1,0 +1,126 @@
+<meta charset="UTF-8">
+<section class="homeContainer"  xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+  <div class="homeWelcomeContainer">
+    <div class="WelcomeContainerImgBox"><img src="" alt="환영인사이미지왼쪽" class="WelcomeContainerImg"></div>
+    <h1 class="homeWelcomeText">테스트 화면.</h1>
+    <div class="WelcomeContainerImgBox"><img src="" alt="환영인사이미지오른쪽" class="WelcomeContainerImg"></div>
+    <div class="homeWelcomeSubTextBox">
+      <p class="homeWelcomeSubText">
+        해당 인트라넷은 주기적으로 프라임 엘도에 전송됩니다.<br>
+        프라임 엘도는 여러분의 노고에 감사드립니다.<br>
+        Anomaly Entity Intranet.
+      </p>
+    </div>
+  </div>
+
+  <div class="homeNoticeContainer">
+    <p class="homeNotice">
+      인트라넷 사용법.
+    </p>
+<!--    ul.homeNoticeMenuList>li.homeNoticeMenuListItem*5>div.homeNoticeMenuListItemBox>h2.NoticeTitle+p.NoticeContent-->
+    <ul class="homeNoticeMenuList">
+      <li class="homeNoticeMenuListItem">
+        어떤 곳인가?
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent">
+            지금 보고 계신 화면은 인텔리 어시스턴스를 개조한 솔리스 코어의 인트라넷 홈페이지입니다.<br>
+            본사를 비롯한 각 지사와 연구소에 존재하는 이상체에 대한 정보를 공유하는 것이 목적이며<br>
+            추가적으로 신입 관리자 및 직원들을 위해 임원들, 메가 코퍼레이션, 사건등을 기술하고 있습니다.<br>
+            여러분께서는 이 곳에서 업무에 필요한 모든 정보를 열람하실 수 있습니다.<br>
+            또한 업무 수행에 있어서 숙지해야할 규칙과 지침도 함께 안내하고 있습니다.<br>
+            이 인트라넷이 여러분의 업무에 도움이 되길 바라며, 안전한 업무 수행을 기대하겠습니다.<br>
+            <h3>- 솔리스 코어 책임자 람다 올림 -</h3>
+          </p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        상단 네비게이션
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent">
+            상단 네비게이션 바는 여러분이 인트라넷 내에서 다양한 정보를 쉽게 찾을 수 있도록 도와줍니다.<br>
+            각 메뉴는 다음과 같은 기능을 제공합니다.<br>
+            모든 작업 환경은 솔리스 코어 내에 제공하는 표준 템플렛을 기반으로 작성할 수 있으며<br>
+            작성된 모든 객체는 데이터베이스에 저장되어 언제든지 열람 및 수정이 가능합니다.<br>
+            추가적으로 미디어 파일(이미지등)를 삽입할 경우 보안 사안 위반(데이터 오염)의 우려가 있으니<br>
+            미디어 파일이 첨부된 페이지는 위험 표기, 임시 격리(Low-Level)등의 절차가 이뤄짐을 고지합니다.<br>
+            임시 격리는 다른 이용자들의 긍정적인 평가를 받거나 관리자(Licence-2 이상)의 승인 처리 후 해제됩니다.
+            또한 <span>객체 작성 후 평가 시스템에서 긍정적인 평가를 받을 경우 인사고과에 반영됨</span>을 알려드립니다.
+            <strong>단, 자신의 관리 등급(Licence)보다 높은 등급은 열람만 가능합니다.</strong>
+          <ul class="NoticeContentList">
+            <strong>파일(F)</strong>
+            <li class="NoticeContentListItem"><strong>새 이상체 작성</strong>
+              <p>
+                위 기능은 본사를 비롯한 각 지부, 연구소에서 발견된 이상체를 서술하는 탭을 엽니다.<br>
+                이상체 작성 시에는 반드시 해당 이상체의 특성과 위험도를 정확히 평가하여<br>
+                솔리스 코어의 안전과 보안을 유지하는 데 기여해야 합니다.<br><br>
+                이상체 작성 시에 제공되는 템플렛 외의 확장 기능은 추후 업데이트를 통해 제공될 예정입니다.<br>
+              </p>
+            </li>
+            <li class="NoticeContentListItem"><strong>새 인물 작성</strong>
+              <p>
+                위 기능은 솔리스 코어를 포함한 모든 세계의 날개 기업에 존재하는 주요 인물들을 서술하는 탭을 엽니다.<br>
+                인물 작성 시에는 기본적으로 이름, 소속, 직책, 역할등을 기재해야 하며<br>
+                추가적으로 배경, 사건, 관련 인물등을 상세히 서술할 수 있습니다.<br>
+                사건, 관련 인물등은 각각의 탭에서 작성된 객체를 불러와 연결할 수 있습니다.<br>
+                단, 자신이 작성한 객체만 불러 올 수 있으나 타인이 작성한 객체에 대해 연결을 요청할 수 있고<br>
+                요청이 승인될 경우 해당 객체에 대한 접근 권한이 부여됩니다.
+              </p>
+            </li>
+            <li class="NoticeContentListItem"><strong>새 회사 작성</strong>
+              <p>
+                위 기능은 프라임 엘도와 세계의 날개를 제외한 회사를 서술하는 탭을 엽니다.<br>
+                기본적으로 프라임 엘도(세계의 기둥)와 세계의 날개(8개의 메가 코퍼레이션)는<br>
+                프라임 엘도에서 관리하는 정보 규범을 따르고 있기 때문에 작성이 불가능합니다.<br>
+                기둥과 날개의 정보 오염 사건 이후로 생긴 조치이니 양해 부탁드립니다.<br><br>
+
+                다만 관리자(Licence-2)는 기둥과 날개의 정보를 수정 요청할 권한이 있습니다.<br>
+                기둥과 날개의 정보는 솔리스 코어 내에서 관리하는 정보가 아닌 만큼<br>
+                요청이 승인될 경우에만 정보가 수정됨을 알려드립니다.
+              </p>
+            </li>
+            <li class="NoticeContentListItem"><strong>새 사건 작성</strong>
+              <p>
+                위 기능은 솔리스 코어와 관련된 사건들을 서술하는 탭을 엽니다.<br>
+                사건에는 세계적인 사건과 솔리스 코어 내에 발생한 사건으로 나뉘어져 있습니다.<br>
+                세계적인 사건과 솔리스 코어 내에서 발생한 <strong>대사건</strong> 경우는 열람만 가능함을 알려드립니다.<br>
+                관련 인물, 관련 이상체등은 각각의 탭에서 작성된 객체를 불러와 연결할 수 있습니다.<br>
+                단, 자신이 작성한 객체만 불러 올 수 있으나 타인이 작성한 객체에 대해 연결을 요청할 수 있고<br>
+                요청이 승인될 경우 해당 객체에 대한 접근 권한이 부여됩니다.
+                사건의 경우 영향력을 얼마나 미쳤는 지에 따라 사건 등급을 설정할 수 있습니다.<br>
+                사건 등급의 경우 자신의 등급 (Licence)보다 높게 설정할 수 없습니다.
+              </p>
+            </li>
+            <li class="NoticeContentListItem"><strong>설정</strong>
+              <p>
+
+              </p>
+            </li>
+          </ul>
+            <strong>보기:</strong> 현재 관리 중인 이상체들의 목록과 상세 정보를 확인할 수 있습니다.<br>
+            <strong>이동:</strong> 솔리스 코어의 주요 임원진과 그들의 역할에 대한 정보를 제공합니다.<br>
+            <strong>접속:</strong> 협력 중인 메가 코퍼레이션들과 그들의 프로젝트에 대한 정보를 확인할 수 있습니다.<br>
+            네비게이션 바는 항상 상단에 위치해 있어 언제든지 쉽게 접근할 수 있습니다.
+          </p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        탭메뉴 관리
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent"></p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        로그인과 보안등급
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent"></p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        인트라넷 규칙
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent"></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
