@@ -3,9 +3,7 @@
 
 /* 헤더 컨테이너: rem 기반 크기 제어 */
 .header {
-  width: 100%;
   margin-inline: auto;
-
   background: f.$menu-bg;
   border-bottom: f.rem(2) solid f.$menu-border; /* 2px → rem */
   color: f.$menu-link;
