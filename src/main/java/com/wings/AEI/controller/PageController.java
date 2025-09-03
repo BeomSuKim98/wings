@@ -14,14 +14,15 @@ public class PageController {
     public String home(Model model){
         model.addAttribute("tabId", "home");
         model.addAttribute("title", "메인화면");
-        model.addAttribute("repo", "home/index");
+        model.addAttribute("repo", "home/main");
         model.addAttribute("frag", "content");
         return "layout";
     }
 
-    @GetMapping("/home/index")
+    @GetMapping("/home/main")
     public String MainPage(Model model) {
-        return "home/index :: content";
+        model.addAttribute("pageCss", "page/home/mainContent.css");
+        return "home/main :: content";
     }
 
     @GetMapping("/home/test")

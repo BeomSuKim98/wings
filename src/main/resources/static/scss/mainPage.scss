@@ -78,10 +78,10 @@ body{overflow-x: hidden;}
   .tab-pane[hidden] { display: none; }
 
   /* 내부 공통 컨텐츠 여백/타이포 기본값 */
-  .tab-pane {
-    h1, h2, h3 { margin: 0 0 f.rem(12); line-height: 1.3; }
-    p, ul, ol { margin: 0 0 f.rem(10); }
-  }
+//   .tab-pane {
+//     h1, h2, h3 { margin: 0 0 f.rem(12); line-height: 1.3; }
+//     p, ul, ol { margin: 0 0 f.rem(10); }
+//   }
 
   @include f.mq($to: f.$bp-mobile) {
     padding: f.rem(12);

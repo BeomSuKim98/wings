@@ -1,0 +1,279 @@
+/* =========================
+   AEI — Intranet Home SCSS (JS 토글 대응)
+   ========================= */
+:root {
+  --aei-bg: rgb(101.2, 101.2, 101.2);
+  --aei-fg: #ffffff;
+  --aei-fg-dim: rgba(255,255,255,0.85);
+  --aei-fg-muted: rgba(255,255,255,0.7);
+  --aei-accent: #cfe8ff;
+  --aei-border: rgba(255,255,255,0.15);
+  --aei-border-strong: rgba(255,255,255,0.25);
+
+  --aei-radius: 14px;
+  --aei-gap: 16px;
+  --aei-gap-lg: 24px;
+  --aei-maxw: 1100px;
+  --aei-line: 1.7;
+  --aei-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* 전체 컨테이너 공통 */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: var(--aei-bg);
+  color: var(--aei-fg);
+  line-height: var(--aei-line);
+  padding: clamp(16px, 3vw, 32px);
+  gap: var(--aei-gap-lg);
+
+  & > .homeWelcomeContainer,
+  & > .homeNoticeContainer {
+    width: 100%;
+    max-width: var(--aei-maxw);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================
+   헤더 섹션
+   ========================= */
+.homeWelcomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--aei-gap);
+
+  .homeWelcomeText {
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .homeWelcomeSubTextBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(12px, 2vw, 20px);
+    border: 1px solid var(--aei-border);
+    border-radius: var(--aei-radius);
+    background: rgba(255,255,255,0.05);
+    box-shadow: var(--aei-shadow);
+
+    .homeWelcomeSubText {
+      margin: 0;
+      text-align: center;
+      color: var(--aei-fg-dim);
+      word-break: keep-all;
+    }
+  }
+
+  .homeWelcomeContainer,
+  .WelcomeContainerImgBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .WelcomeContainerImg {
+    object-fit: contain;
+  }
+}
+
+/* =========================
+   공지 섹션
+   ========================= */
+.homeNoticeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aei-gap);
+
+  .homeNotice {
+    margin: 0;
+    padding: 8px 12px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: calc(var(--aei-radius) - 6px);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--aei-border);
+    font-weight: 600;
+    letter-spacing: .2px;
+    text-align: center;
+  }
+}
+
+/* 공지 메뉴 리스트 */
+.homeNoticeMenuList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aei-gap-lg);
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+/* 각 항목 블록 */
+.homeNoticeMenuListItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(12px, 2vw, 18px);
+  border: 1px solid var(--aei-border);
+  border-radius: var(--aei-radius);
+  background: rgba(255,255,255,0.04);
+  box-shadow: var(--aei-shadow);
+
+  & > :first-child {
+    display: block;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--aei-border);
+  }
+
+  .homeNoticeMenuListItemBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .NoticeTitle { font-weight: 700; margin: 0; }
+
+    .NoticeContent,
+    .noticeContent { margin: 0; color: var(--aei-fg-dim); }
+  }
+}
+
+/* =========================
+   접힘/펼침(설명 리스트) — JS 토글 전용
+   ========================= */
+
+/* 공통 리스트 */
+.noticeContentList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+
+  & > strong {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--aei-fg);
+    letter-spacing: .3px;
+  }
+}
+
+/* 리스트 아이템 (토글 대상) */
+.noticeContentListItem {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  border: 1px solid var(--aei-border);
+  border-radius: calc(var(--aei-radius) - 6px);
+  background: rgba(255,255,255,0.03);
+
+  /* 제목 head (strong) */
+  & > strong {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 22px;
+    outline: none;
+
+    /* 키보드 포커스 표시 */
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba(207,232,255,0.45);
+      border-radius: 8px;
+    }
+
+    /* 접힘 아이콘 */
+    &::after {
+      content: "▸";
+      position: absolute;
+      right: 0;
+      top: -5%;
+      transform: translateY(1px) rotate(0deg);
+      transition: transform .2s ease;
+      opacity: 0.85;
+    }
+  }
+
+  /* 본문 — 초기에는 접힘 상태 (JS가 height 애니메이션 제어) */
+  & > p {
+    margin: 0;
+    color: var(--aei-fg-muted);
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      height .28s ease,
+      opacity .2s ease,
+      visibility .2s ease;
+  }
+
+  /* 열린 상태 (JS가 .is-open 부여) */
+  &.is-open > p {
+    /* height는 JS가 px 값으로 계산하여 인라인 스타일로 설정 */
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 열린 상태에서 아이콘 회전 */
+  &.is-open > strong::after {
+    transform: translateY(1px) rotate(90deg);
+  }
+}
+
+/* =========================
+   타이포그래피 & 링크
+   ========================= */
+.homeContainer {
+  h1, h2, h3 { line-height: 1.3; margin: 0; }
+  h1 { font-weight: 800; }
+  h2 { font-weight: 700; }
+  h3 { font-weight: 600; text-align: center; }
+  p { letter-spacing: 0.1px; }
+
+  a {
+    color: var(--aei-accent);
+    text-underline-offset: 2px;
+    &:hover { text-decoration: underline; }
+  }
+
+  strong { color: var(--aei-fg); }
+  span { color: var(--aei-fg-dim); }
+}
+
+/* =========================
+   카드/패널 보조
+   ========================= */
+.is-muted { color: var(--aei-fg-muted); }
+.is-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* =========================
+   반응형 보정
+   ========================= */
+@media (max-width: 720px) {
+  .homeContainer { --aei-gap: 12px; --aei-gap-lg: 16px; }
+  .homeWelcomeSubTextBox { padding: 12px; }
+  .homeNoticeMenuListItem { padding: 12px; }
+}

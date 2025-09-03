@@ -1,0 +1,329 @@
+
+<meta charset="UTF-8">
+
+<section class="homeContainer"  xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+  <div class="homeWelcomeContainer">
+    <div class="WelcomeContainerImgBox"><img alt="환영인사이미지왼쪽" class="WelcomeContainerImg" src=""></div>
+    <h1 class="homeWelcomeText">AEI에 오신 것을 환영합니다.</h1>
+    <div class="WelcomeContainerImgBox"><img alt="환영인사이미지오른쪽" class="WelcomeContainerImg" src=""></div>
+    <div class="homeWelcomeSubTextBox">
+      <p class="homeWelcomeSubText">
+        해당 인트라넷은 주기적으로 프라임 엘도에 전송됩니다.<br>
+        프라임 엘도는 여러분의 노고에 감사드립니다.<br>
+        Anomaly Entity Intranet.
+      </p>
+    </div>
+  </div>
+
+  <div class="homeNoticeContainer">
+    <p class="homeNotice">
+      인트라넷 사용법.
+    </p>
+<!--    ul.homeNoticeMenuList>li.homeNoticeMenuListItem*5>div.homeNoticeMenuListItemBox>h2.NoticeTitle+p.NoticeContent-->
+    <ul class="homeNoticeMenuList">
+      <li class="homeNoticeMenuListItem">
+        어떤 곳인가?
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent">
+            지금 보고 계신 화면은 프라임 엘도의 IDE를 개조한 솔리스 코어의 인트라넷 홈페이지입니다.
+            본사를 비롯한 각 지사와 연구소에 존재하는 이상체에 대한 정보를 공유하는 것이 목적이며
+            추가적으로 신입 관리자 및 직원들을 위해 임원들, 메가 코퍼레이션, 사건등을 기술하고 있습니다.<br><br>
+            여러분께서는 이 곳에서 업무에 필요한 모든 정보를 열람하실 수 있습니다.
+            또한 업무 수행에 있어서 숙지해야할 규칙과 지침도 함께 안내하고 있습니다.
+            이 인트라넷이 여러분의 업무에 도움이 되길 바라며, 안전한 업무 수행을 기대하겠습니다.<br>
+            <h3>- 솔리스 코어 책임자 람다 올림 -</h3>
+          </p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        상단 네비게이션
+        <div class="homeNoticeMenuListItemBox">
+          <p class="noticeContent">
+            상단 네비게이션 바는 여러분이 인트라넷 내에서 다양한 정보를 쉽게 찾을 수 있도록 도와줍니다.
+            각 메뉴는 다음과 같은 기능을 제공합니다.<br>
+            모든 작업 환경은 솔리스 코어 내에 제공하는 표준 템플렛을 기반으로 작성할 수 있으며
+            작성된 모든 객체는 데이터베이스에 저장되어 언제든지 열람 및 수정이 가능합니다.<br>
+            추가적으로 미디어 파일(이미지등)를 삽입할 경우 보안 사안 위반(데이터 오염)의 우려가 있으니
+            미디어 파일이 첨부된 페이지는 위험 표기, 임시 격리(Low-Level)등의 절차가 이뤄짐을 고지합니다.<br>
+            임시 격리는 다른 이용자들의 긍정적인 평가를 받거나 관리자(Licence-2 이상)의 승인 처리 후 해제됩니다.
+            또한 <span>객체 작성 후 평가 시스템에서 긍정적인 평가를 받을 경우 인사고과에 반영됨</span>을 알려드립니다.
+            <strong>단, 자신의 관리 등급(Licence)보다 높은 등급은 열람만 가능합니다.</strong><br>
+          <ul class="noticeContentList">
+            <strong>파일(F)</strong>
+            <li class="noticeContentListItem"><strong>새 이상체 작성</strong>
+              <p>
+                위 기능은 본사를 비롯한 각 지부, 연구소에서 발견된 이상체를 서술하는 탭을 엽니다.
+                이상체 작성 시에는 반드시 해당 이상체의 특성과 위험도를 정확히 평가하여
+                솔리스 코어의 안전과 보안을 유지하는 데 기여해야 합니다.<br><br>
+                이상체 작성 시에 제공되는 템플렛 외의 확장 기능은 추후 업데이트를 통해 제공될 예정입니다.<br>
+              </p>
+            </li>
+            <li class="noticeContentListItem"><strong>새 인물 작성</strong>
+              <p>
+                위 기능은 솔리스 코어를 포함한 모든 세계의 날개 기업에 존재하는 주요 인물들을 서술하는 탭을 엽니다.
+                인물 작성 시에는 기본적으로 이름, 소속, 직책, 역할등을 기재해야 하며
+                추가적으로 배경, 사건, 관련 인물등을 상세히 서술할 수 있습니다.<br>
+                사건, 관련 인물등은 각각의 탭에서 작성된 객체를 불러와 연결할 수 있습니다.
+                단, 자신이 작성한 객체만 불러 올 수 있으나 타인이 작성한 객체에 대해 연결을 요청할 수 있고
+                요청이 승인될 경우 해당 객체에 대한 접근 권한이 부여됩니다.<br>
+              </p>
+            </li>
+            <li class="noticeContentListItem"><strong>새 회사 작성</strong>
+              <p>
+                위 기능은 프라임 엘도와 세계의 날개를 제외한 회사를 서술하는 탭을 엽니다.<br>
+                기본적으로 프라임 엘도(세계의 기둥)와 세계의 날개(8개의 메가 코퍼레이션)는
+                프라임 엘도에서 관리하는 정보 규범을 따르고 있기 때문에 작성이 불가능합니다.<br>
+                기둥과 날개의 정보 오염 사건 이후로 생긴 조치이니 양해 부탁드립니다.<br><br>
+
+                다만 관리자(Licence-2)는 기둥과 날개의 정보를 수정 요청할 권한이 있습니다.<br>
+                기둥과 날개의 정보는 솔리스 코어 내에서 관리하는 정보가 아닌 만큼
+                요청이 승인될 경우에만 정보가 수정됨을 알려드립니다.<br>
+              </p>
+            </li>
+            <li class="noticeContentListItem"><strong>새 사건 작성</strong>
+              <p>
+                위 기능은 솔리스 코어와 관련된 사건들을 서술하는 탭을 엽니다.<br>
+                사건에는 세계적인 사건과 솔리스 코어 내에 발생한 사건으로 나뉘어져 있습니다.
+                세계적인 사건과 솔리스 코어 내에서 발생한 <strong>대사건</strong> 경우는 열람만 가능함을 알려드립니다.<br>
+                관련 인물, 관련 이상체등은 각각의 탭에서 작성된 객체를 불러와 연결할 수 있습니다.<br>
+                단, 자신이 작성한 객체만 불러 올 수 있으나 타인이 작성한 객체에 대해 연결을 요청할 수 있고
+                요청이 승인될 경우 해당 객체에 대한 접근 권한이 부여됩니다.
+                사건의 경우 영향력을 얼마나 미쳤는 지에 따라 사건 등급을 설정할 수 있습니다.<br>
+                사건 등급의 경우 자신의 등급 (Licence)보다 높게 설정할 수 없습니다.
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>설정</strong>
+              <p>
+                현재 인트라넷은 프라임 엘도에서 사용하던 IDE(통합개발환경)를 개조한 형태입니다.<br>
+                따라서 기본적인 화면 구성이나 색상, 글꼴등은 프라임 엘도의 환경과 맞춰줘 있으므로
+                가급적 변경하지 않는 것을 권장합니다.<br><br>
+                다만 개인의 작업 환경에 맞게 화면 크기등을 조절할 수는 있으니
+                필요에 따라 적절히 조절하여 사용하시기 바랍니다.<br>
+
+                <strong>현재 해당 기능은 프라임 엘도의 IDE 구성 변경에 따라 임시 잠금 조치되었습니다.</strong>
+              </p>
+            </li>
+          </ul>
+<!--          ul.noticeContentList>strong+li.noticeContentListItem*3>p-->
+          <ul class="noticeContentList">
+            <strong>보기(V)</strong>
+            <li class="noticeContentListItem">
+              <strong>화면 구성 변경</strong>
+              <p>
+                기본 상태는 신규 사용자를 위해 최적화 되어 있습니다.
+                해당 페이지로 들어가면 경로 창 활성화, 상단 바, 사이드 바등을 켜고 끌 수 있습니다.
+                프라임 엘도의 IDE 구성 표준에 따라 제한된 몇 가지 옵션만 제공되니 양해 부탁드립니다.
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>화면 색상 변경</strong>
+              <p>
+                기본적으로 밝은 색상 모드와 어두운 색상 모드 두 가지가 제공됩니다.
+                다만 고급 설정에 들어가면 사용자가 직접 색상을 지정할 수 있는 옵션이 제공됩니다.
+                색상을 바꿀 수 있는 요소는 배경, 텍스트가 존재합니다.
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>화면 크기 변경</strong>
+              <p>
+                AEI는 반응형 웹 디자인을 채택하고 있어 다양한 화면 크기에 적응할 수 있습니다.
+                기본적으로 사용자 화면에 맞게 최적화 되어 출력되지만 사용자가 직접 크기를 지정할 수 있습니다.
+                이 경우 지정할 수 있는 요소는 글자 크기, 인터페이스 크기등이 존재합니다.
+              </p>
+            </li>
+          </ul>
+
+          <ul class="noticeContentList">
+            <strong>이동(G)</strong>
+            <li class="noticeContentListItem">
+              <strong>메인 화면</strong>
+              <p>
+                현재 보고 계신 화면입니다. 인트라넷의 주요 공지사항과 사용법이 안내되어 있습니다.
+                이 화면은 언제든지 상단 네비게이션 바의 '이동(G)' 메뉴에서 '메인 화면'을 클릭하여 접근할 수 있습니다.
+                또한 상단 네비게이션 바의 아이콘을 클릭하셔도 이 화면으로 돌아올 수 있습니다.
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>이상체 화면</strong>
+              <p>
+                이상체의 표기는 다음과 같습니다. 異常體 (이상체) / Extradimensional Anomalous Entity (EAE)
+                솔리스 코어 내에 관리 중인 이상체들의 목록과 상세 정보를 확인할 수 있습니다.
+                이상체 화면은 위키 트리 형식으로 색인되어 있어 원하는 이상체를 쉽게 찾을 수 있습니다.
+
+                이상체의 기본 정보로는 위험도에 따라 색상으로 구분되어 있기 때문에 한눈에 위험도를 파악할 수 있습니다.
+
+                이상체 위험 등급은 다음과 같습니다<br>
+<!--                반드시 이미지 파일은 스프리트로 만들것 아래는 테스트 이미지-->
+                <img th:src="@{/img/contents/abnormality/Shamar.png}" alt="Shamar이미지" width="64">Shamar (경계)<br>
+                <img th:src="@{/img/contents/abnormality/Mavet.png}" alt="Mavet이미지" width="64">Mavet (죽음)<br>
+                <img th:src="@{/img/contents/abnormality/Ra'ah.png}" alt="Ra'ah이미지" width="64">Ra‘ah (악)<br>
+                <img th:src="@{/img/contents/abnormality/Tohu.png}" alt="Tohu이미지" width="64">Tohu (혼돈)<br>
+                <img th:src="@{/img/contents/abnormality/Shelo.png}" alt="Shelo이미지" width="64">Shelo (지옥)<br>
+                <img th:src="@{/img/contents/abnormality/Olam.png}" alt="Olam이미지" width="64">Olam (영원)<br>
+
+                영원은 단 한개의 객체를 위해 상징적으로 존재하며 실질적으로는 5단계의 위험 분류표를 따릅니다.<br>
+                따라서 영원 등급의 이상체는 작성이 불가합니다. 추후 그럴 일 없겠지만 혹시라도 영원 등급으로 위험 등급<br>
+                조정이 필요할 경우 내부 승인 절차를 거쳐야 함을 알려드립니다.
+
+                <strong>지옥 등급 객체는 부서 관리자(Licence-3)를 통해 위험도를 승인 받으시길 바랍니다.</strong>
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>인물 화면</strong>
+              <p>
+                해당 인트라넷에 데이터로 작성된 인물들은 모두 이 화면에서 확인할 수 있습니다.
+                프라임 엘도에서 제공하는 인물 DB와 솔리스 코어 내에 존재 하는 인물 중 일부는
+                열람만 가능하며 해당 인물은 따로 색상으로 표기 되어있습니다.
+                특히, 본사에 존재하는 인물에 대해서는 무결성 원칙을 준수하기 위해
+                작성이 금지 되어 있습니다. 다만, 관리자(Licence-2)의 경우 작성을 요청할 수 있습니다.<br>
+
+                솔리스 코어 내에 존재하는 부서는 아래와 같습니다.<br><br>
+                1.인사부<br>
+                2.연구부<br>
+                3.교육부<br>
+                4.이상체 관리부<br>
+                5.에너지 관리부<br>
+                6.전략부<br>
+                7.정보부<br>
+                8.교련부<br><br>
+
+                그 외의 특수 임무를 수행하기 위한 두 팀이 존재하며, 두 팀의 명칭은 아래와 같습니다.<br><br>
+
+                특별팀<br>
+                프라임팀<br><br>
+
+                각 지사와 연구소는 목적과 크기를 고려하여 일부 부서가 존재하지 않거나,
+                해당 지사와 연구소만의 그룹이 구성되어 있을 수 있음을 알려드립니다.<br><br>
+
+                <strong>현재 프라임팀의 경우 비밀 유지를 위해서 관리자(Licence-3)등급 미만은 열람 조차 허락되지 않습니다.</strong>
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>기업 화면</strong>
+              <p>
+                기업에 대해 서술하기 앞서 가장 먼저 인지해야할 사항을 알려드립니다.
+                우선 세계의 날개라고 불리는 8개의 메가 코퍼레이션과 날개를 잇는 중앙인
+                세계의 기둥, 프라임 엘도에 대해서는 프라임 엘도에서 데이터를 관리하기 때문에
+                작성이 불가능합니다. <br><br>
+
+                세계의 날개인 메가 코퍼레이션인 8개의 기업은 아래와 같습니다.<br><br>
+
+                1.솔리스 코어<br>
+                2.아스트라 헬릭스<br>
+                3.제네티카<br>
+                4.아르마 테크<br>
+                5.시냅스 볼트<br>
+                6.데우스 엑스 마키나<br>
+                7.에리온 컬트라<br>
+                8.Scilpse<br><br>
+
+                이 페이지에서 날개와 기둥은 별도로 표시 되어 있습니다.
+                여러분께서는 이 페이지에서 모든 기업의 목록과 상세 정보를 확인할 수 있습니다.<br>
+
+                기업의 분류는 아래와 같습니다.<br><br>
+                1.세계의 기둥<br>
+                2.세계의 날개<br>
+                3.메가 코퍼레이션<br>
+                4.위성 기업<br><br>
+
+                오늘 날에 이르러 각국가와 정부의 대부분이 그 기능을 상실한 상태입니다.
+                그 자리를 메가 코퍼레이션이 대신하고 있기 때문에 메가 코퍼레이션이 직접 관리하는 도시 및 기업이 존재합니다.
+                따라서 기업 페이지에서는 각 메가 코퍼레이션의 직할 도시와 직할 도시에 존재하는
+                크고 작은 위성 기업들에 대한 정보가 존재합니다.<br>
+
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>지리 화면</strong>
+              <p>
+                지리 화면에서는 지구에 존재하는 기둥과 날개의 위치가 표시되어 있습니다.
+                각 기업이 관리하고 있는 영토를 비롯해 구 시대 국가의 국경이나 문화권등을 확인할 수 있습니다.
+                기업 전쟁과 세계 대전 이후 생긴 이상현상과 최초의 공명 이후 생긴 7대 이상지대 또한
+                확인 하실 수 있습니다.<br><br>
+                다만, 이 페이지에 해당 되는 정보는 변화가 거의 없는 정적인 정보이기 때문에
+                따로 작성하는 것이 불가능합니다. 해당 정보들은 모두 프라임 엘도에서 관리하는 DB와
+                주기적으로 동기화하여 업데이트 되고 있음을 알려드립니다.<br><br>
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>사용자 설정 화면</strong>
+              <p>
+                <strong>해당 내용에 대한 안내 사항은 관련 데이터 소멸로 빠른 시일 내에 복구하겠습니다</strong><br>
+              </p>
+            </li>
+          </ul>
+
+          <ul class="noticeContentList">
+            <strong>관리자 접속(L)</strong>
+            <li class="noticeContentListItem">
+              <strong>관리자 접속</strong>
+              <p>
+                관리자 접속은 AEI DB에 접속 하는 것을 의미합니다.
+                기본적으로 신입 관리자는 Licence-1 등급이 부여됩니다.
+                일부 내용을 제외하고 대부분의 내용을 작성할 수 있습니다.<br><br>
+                관리 등급 상승은 항상 Licence-3 등급 이상의 관리자의 승인이 필요합니다.
+                관리 등급이 상승하더라도 일부 내용에 대해 수정 요청만이 가능하니
+                사실상 Licence-1 등급과 큰 차이는 존재하지 않습니다.<br>
+                등급 상승에 관한 내용은 DB관리자 요청란에 요청 내용을 작성하시길 바랍니다.<br>
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>비 관리자 설정</strong>
+              <p>
+                해당 인트라넷은 솔리스 코어 내의 직원만이 접속할 수 있다는 전제로 오픈되어 있습니다.
+                따라서 거의 모든 내용은 관리자 접속 없이도 열람이 가능합니다. <br>
+                이 화면에서는 보기(V) 탭에서 설명한 화면 구성 변경, 화면 색상 변경, 화면 크기 변경이 가능합니다.
+                다만, 사용자의 개인 캐시에 정보가 저장되는 만큼 기록을 삭제하면 다시 설정해야함을 알려드립니다.
+              </p>
+            </li>
+            <li class="noticeContentListItem">
+              <strong>내 임시 저장 데이터</strong>
+              <p>
+                AEI는 예외 상황을 대비하여 비 관리자 또한 정보를 작성할 수 있습니다.
+                작성된 정보는 임시 저장 데이터로 분류되어 DB에 저장되지 않습니다.
+                작성이 완료된 정보는 관리자(Licence-1 이상)의 평가 이후에 공개가 개시됩니다.<br><br>
+
+                또한, 관리자 혹은 비 관리자 상태로 작성 중인 모든 정보는 이 화면에서 확인할 수 있습니다.
+                이때 작성된 정보는 모두 캐시로 저장되기 때문에 기록을 삭제하거나 일정 시간 뒤에
+                삭제가 됩니다. 삭제된 정보는 복구할 수 없으니 주의하시길 바랍니다.<br>
+
+              </p>
+            </li>
+          </ul>
+          </p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        탭메뉴 관리
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent"></p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        로그인과 보안등급
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent"></p>
+        </div>
+      </li>
+      <li class="homeNoticeMenuListItem">
+        인트라넷 규칙
+        <div class="homeNoticeMenuListItemBox">
+          <p class="NoticeContent">
+            본 인트라넷은 솔리스 코어의 자산이며, 모든 활동은 모니터링되고 기록됩니다.<br>
+            무단 접근, 데이터 조작, 정보 유출 등은 엄격히 금지되며, 위반 시 법적 제재를 받을 수 있습니다.<br>
+            인트라넷 사용 시에는 항상 회사의 보안 정책과 지침을 준수하시길 바랍니다.<br>
+
+            비 관리자로 작성된 모든 내용은 임시 관리 조치에 들어갑니다. 일정 시간이 지나거나
+            관리자(Licence-1 이상)의 평가에 따라 공개 조치됩니다.<br>
+            위 내용은 신규 관리자에게도 적용됩니다. 신규 관리자는 24시간 뒤 자동 동기화 처리됩니다.<br><br>
+
+            <strong>다른 사용자에게 불쾌감을 주는 행위, 혐오 표현, 차별적 언행 등은 엄격히 금지됩니다.</strong></strong><br>
+            이러한 행위가 발견될 경우 즉시 관리 자격 박탈 조치가 내려지며, 법적 제재를 받을 수 있습니다.<br>
+            인트라넷은 모두를 위한 공간임을 명심하시길 바랍니다.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
