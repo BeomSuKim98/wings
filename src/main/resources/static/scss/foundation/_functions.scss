@@ -1,4 +1,26 @@
-// px → rem (기본 16px)
-@function rem($px) {
-  @return calc($px / 16) * 1rem;
+@use "sass:math";
+
+/// px → rem 변환
+/// 숫자만 넘겨도 되고(px 붙여도 됨)
+@function rem($px, $base: 16px) {
+  // 단위 없는 값은 px 단위 부여
+  @if math.is-unitless($px)   { $px:  $px  * 1px; }
+  @if math.is-unitless($base) { $base: $base * 1px; }
+
+  @return math.div($px, $base) * 1rem;
+}
+
+/// clamp 기반 유체 타이포/스페이싱
+/// 예: font-size: fluid(14px, 18px);
+@function fluid($min, $max, $vw-min: 320px, $vw-max: 1440px) {
+  // 뷰포트 비율 기울기 계산
+  $slope: (100vw - $vw-min) / (math.div($vw-max - $vw-min, 1));
+
+  @return clamp(
+    $min,
+    calc(
+      #{$min} + (#{$max - $min}) * ( #{$slope} / (#{($vw-max - $vw-min)/1px}) )
+    ),
+    $max
+  );
 }

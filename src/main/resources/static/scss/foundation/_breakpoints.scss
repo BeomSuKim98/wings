@@ -1,2 +1,19 @@
-$bp-mobile: 320px; // 20rem
-$bp-tablet: 1080px; // 67.5rem
+@use "sass:map";
+
+/// 의미 기반 브레이크포인트 맵
+$bp: (
+  xs: 320px,   // mobile (~)
+  sm: 480px,
+  md: 768px,
+  lg: 1080px,  // tablet/desktop
+  xl: 1440px
+) !default;
+
+/// 별칭(기존 호환)
+$bp-mobile: map.get($bp, xs);
+$bp-tablet: map.get($bp, lg);
+
+/// 조회 함수
+@function bp($key) {
+  @return map.get($bp, $key);
+}

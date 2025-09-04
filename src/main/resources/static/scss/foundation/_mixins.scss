@@ -1,25 +1,49 @@
-// 범용 미디어쿼리
+@use "sass:meta";
+@use "sass:math";
+@use "sass:map";
+@use "./breakpoints" as *; // bp($key) 함수와 $bp 맵을 노출한다고 가정
+
+// 문자열 키 / 숫자(px/단위없음) / 길이값을 모두 안전하게 해석
+@function _resolve-bp($val) {
+  @if $val == null { @return null; }
+
+  $t: meta.type-of($val);
+
+  @if $t == "string" {
+    // 예: "md", "lg"
+    @return bp($val);
+  } @else if $t == "number" {
+    // 단위 없으면 px로 보정
+    @return if(math.is-unitless($val), $val * 1px, $val);
+  } @else {
+    @warn "mq(): Unsupported breakpoint value `#{$val}` of type `#{$t}`. Ignored.";
+    @return null;
+  }
+}
+
+/// 범용 미디어쿼리
+/// 예: @include mq(from: md) { … } / @include mq(to: 768px) { … } / @include mq(from: 480, to: 1080)
 @mixin mq($from: null, $to: null) {
-  @if $from != null and $to != null {
-    @media (min-width: $from) and (max-width: $to) {
-      @content;
-    }
-  } @else if $from != null {
-    @media (min-width: $from) {
-      @content;
-    }
-  } @else if $to != null {
-    @media (max-width: $to) {
-      @content;
-    }
+  $min: _resolve-bp($from);
+  $max: _resolve-bp($to);
+
+  // 둘 다 존재하고 단위 호환이면 역전 교정
+  @if $min != null and $max != null and math.compatible($min, $max) and $min > $max {
+    $tmp: $min; $min: $max; $max: $tmp;
+  }
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) { @content; }
+  } @else if $min != null {
+    @media (min-width: $min) { @content; }
+  } @else if $max != null {
+    @media (max-width: $max) { @content; }
   } @else {
     @content;
   }
 }
 
-// 모션 민감 사용자 배려
+/// 모션 민감 사용자 배려
 @mixin reduce-motion {
-  @media (prefers-reduced-motion: reduce) {
-    @content;
-  }
+  @media (prefers-reduced-motion: reduce) { @content; }
 }

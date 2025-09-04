@@ -1,24 +1,48 @@
-// header/footer 공용 토큰
-$menu-bg: #6e6e6e; // 종이 느낌
-$menu-border: #b8b8b8;
-$menu-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-$menu-link: #f1f1f1;
-$menu-link-hover: #0f172a;
-$menu-hover-bg: #eef2f7;
-
+/* 런타임 변경 가능한 디자인 토큰 — :root 기본값 */
 :root {
-  --aei-bg: rgb(101.2, 101.2, 101.2);
-  --aei-fg: #ffffff;
-  --aei-fg-dim: rgba(255,255,255,0.85);
-  --aei-fg-muted: rgba(255,255,255,0.7);
-  --aei-accent: #cfe8ff;
-  --aei-border: rgba(255,255,255,0.15);
-  --aei-border-strong: rgba(255,255,255,0.25);
+  /* 색상 (사용자 변경 가능) */
+  --text-primary:   #0f172a;   /* 본문 글자색 */
+  --text-secondary: #475569;   /* 보조 텍스트 */
+  --text-inverse:   #ffffff;   /* 어두운 배경 위 텍스트 */
+  --bg-surface:     #f6f7f9;   /* 기본 배경 */
+  --bg-surface-2:   #e9ecf2;   /* 보조 배경 */
+  --bg-invert:      rgb(101,101,101); /* 반전 배경(기존 aei-bg 근사) */
 
-  --aei-radius: 14px;
-  --aei-gap: 16px;
-  --aei-gap-lg: 24px;
+  /* 메뉴(기존 호환용) — 필요 시 제거 가능 */
+  --menu-bg:         #6e6e6e;
+  --menu-border:     #b8b8b8;
+  --menu-shadow:     0 2px 4px rgba(0,0,0,0.25);
+  --menu-link:       #f1f1f1;
+  --menu-link-hover: #0f172a;
+  --menu-hover-bg:   #eef2f7;
+
+  /* 글자 크기 스케일 (사용자 변경 가능) */
+  --fs-100: 0.75rem;
+  --fs-200: 0.875rem;
+  --fs-300: 1rem;       /* base */
+  --fs-400: 1.125rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 1.875rem;
+
+  /* 여백/라운드(필요 시 일부만 사용자 변경 가능하도록) */
+  --radius-md: 14px;
+  --gap-1: 16px;
+  --gap-2: 24px;
+
+  /* 음영/보더 */
+  --border-subtle: rgba(255,255,255,0.15);
+  --border-strong: rgba(255,255,255,0.25);
+  --shadow-lg:     0 6px 20px rgba(0,0,0,0.25);
+
+  /* 최대 폭/라인하이트 등 */
   --aei-maxw: 1100px;
   --aei-line: 1.7;
-  --aei-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
+
+/* 선택: 다크/하이콘트라스트 등 테마도 이렇게 덮어쓰기 가능
+[data-theme="dark"] {
+  --bg-surface: #121318;
+  --text-primary: #e5e7eb;
+}
+*/

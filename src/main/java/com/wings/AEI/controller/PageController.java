@@ -21,7 +21,8 @@ public class PageController {
 
     @GetMapping("/home/main")
     public String MainPage(Model model) {
-        model.addAttribute("pageCss", "page/home/mainContent.css");
+        model.addAttribute("repo", "home/main");
+        model.addAttribute("frag", "content");
         return "home/main :: content";
     }
 

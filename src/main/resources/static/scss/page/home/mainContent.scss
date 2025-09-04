@@ -1,35 +1,22 @@
+@use '../../foundation' as f;
+
 /* =========================
-   AEI — Intranet Home SCSS (JS 토글 대응)
+   메인 컨테이너
    ========================= */
-:root {
-  --aei-bg: rgb(101.2, 101.2, 101.2);
-  --aei-fg: #ffffff;
-  --aei-fg-dim: rgba(255,255,255,0.85);
-  --aei-fg-muted: rgba(255,255,255,0.7);
-  --aei-accent: #cfe8ff;
-  --aei-border: rgba(255,255,255,0.15);
-  --aei-border-strong: rgba(255,255,255,0.25);
-
-  --aei-radius: 14px;
-  --aei-gap: 16px;
-  --aei-gap-lg: 24px;
-  --aei-maxw: 1100px;
-  --aei-line: 1.7;
-  --aei-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
-/* 전체 컨테이너 공통 */
 .homeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  background: var(--aei-bg);
-  color: var(--aei-fg);
+
+  /* 배경/글자: 새 토큰 + 레거시 fallback */
+  background: var(--bg-invert, var(--aei-bg));
+  color: var(--text-inverse, var(--aei-fg));
   line-height: var(--aei-line);
-  padding: clamp(16px, 3vw, 32px);
-  gap: var(--aei-gap-lg);
+
+  padding: clamp(f.rem(16), 3vw, f.rem(32));
+  gap: var(--gap-2, var(--aei-gap-lg));
 
   & > .homeWelcomeContainer,
   & > .homeNoticeContainer {
@@ -52,29 +39,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--aei-gap);
+  gap: var(--gap-1, var(--aei-gap));
 
   .homeWelcomeText {
     margin: 0;
     text-align: center;
     font-weight: 700;
     letter-spacing: 0.2px;
+    color: var(--text-inverse, var(--aei-fg));
   }
 
   .homeWelcomeSubTextBox {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(12px, 2vw, 20px);
-    border: 1px solid var(--aei-border);
-    border-radius: var(--aei-radius);
-    background: rgba(255,255,255,0.05);
-    box-shadow: var(--aei-shadow);
+    padding: clamp(f.rem(12), 2vw, f.rem(20));
+    border: 1px solid var(--border-subtle, var(--aei-border));
+    border-radius: var(--radius-md, var(--aei-radius));
+    background: color-mix(in srgb, var(--text-inverse, #fff) 5%, transparent);
+    box-shadow: var(--shadow-lg, var(--aei-shadow));
 
     .homeWelcomeSubText {
       margin: 0;
       text-align: center;
-      color: var(--aei-fg-dim);
+      color: var(--text-inverse-dim, var(--aei-fg-dim));
       word-break: keep-all;
     }
   }
@@ -97,18 +85,21 @@
 .homeNoticeContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--aei-gap);
+  gap: var(--gap-1, var(--aei-gap));
 
   .homeNotice {
     margin: 0;
-    padding: 8px 12px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: calc(var(--aei-radius) - 6px);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--aei-border);
+    padding: f.rem(8) f.rem(12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--radius-md, var(--aei-radius)) - f.rem(6));
+    background: color-mix(in srgb, var(--text-inverse, #fff) 6%, transparent);
+    border: 1px solid var(--border-subtle, var(--aei-border));
     font-weight: 600;
     letter-spacing: .2px;
     text-align: center;
+    color: var(--text-inverse, var(--aei-fg));
   }
 }
 
@@ -116,90 +107,85 @@
 .homeNoticeMenuList {
   display: flex;
   flex-direction: column;
-  gap: var(--aei-gap-lg);
+  gap: var(--gap-2, var(--aei-gap-lg));
   list-style: none;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* 각 항목 블록 */
 .homeNoticeMenuListItem {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: clamp(12px, 2vw, 18px);
-  border: 1px solid var(--aei-border);
-  border-radius: var(--aei-radius);
-  background: rgba(255,255,255,0.04);
-  box-shadow: var(--aei-shadow);
+  gap: f.rem(10);
+  padding: clamp(f.rem(12), 2vw, f.rem(18));
+  border: 1px solid var(--border-subtle, var(--aei-border));
+  border-radius: var(--radius-md, var(--aei-radius));
+  background: color-mix(in srgb, var(--text-inverse, #fff) 4%, transparent);
+  box-shadow: var(--shadow-lg, var(--aei-shadow));
 
   & > :first-child {
     display: block;
-    padding-bottom: 6px;
-    border-bottom: 1px dashed var(--aei-border);
+    padding-bottom: f.rem(6);
+    border-bottom: 1px dashed var(--border-subtle, var(--aei-border));
   }
 
   .homeNoticeMenuListItemBox {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: f.rem(12);
 
-    .NoticeTitle { font-weight: 700; margin: 0; }
+    .NoticeTitle { font-weight: 700; margin: 0; color: var(--text-inverse, var(--aei-fg)); }
 
     .NoticeContent,
-    .noticeContent { margin: 0; color: var(--aei-fg-dim); }
+    .noticeContent { margin: 0; color: var(--text-inverse-dim, var(--aei-fg-dim)); }
   }
 }
 
 /* =========================
-   접힘/펼침(설명 리스트) — JS 토글 전용
+   접힘/펼침(설명 리스트)
    ========================= */
-
-/* 공통 리스트 */
 .noticeContentList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: f.rem(10);
   list-style: none;
-  margin: 6px 0 0;
+  margin: f.rem(6) 0 0;
   padding: 0;
 
   & > strong {
     display: block;
     font-weight: 800;
-    margin-bottom: 6px;
-    color: var(--aei-fg);
+    margin-bottom: f.rem(6);
+    color: var(--text-inverse, var(--aei-fg));
     letter-spacing: .3px;
   }
 }
 
-/* 리스트 아이템 (토글 대상) */
 .noticeContentListItem {
   display: flex;
   flex-direction: column;
-  padding: 10px 12px;
-  border: 1px solid var(--aei-border);
-  border-radius: calc(var(--aei-radius) - 6px);
-  background: rgba(255,255,255,0.03);
+  padding: f.rem(10) f.rem(12);
+  border: 1px solid var(--border-subtle, var(--aei-border));
+  border-radius: calc(var(--radius-md, var(--aei-radius)) - f.rem(6));
+  background: color-mix(in srgb, var(--text-inverse, #fff) 3%, transparent);
 
-  /* 제목 head (strong) */
   & > strong {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: f.rem(8);
     cursor: pointer;
     user-select: none;
     position: relative;
-    padding-right: 22px;
+    padding-right: f.rem(22);
     outline: none;
 
-    /* 키보드 포커스 표시 */
     &:focus-visible {
-      box-shadow: 0 0 0 3px rgba(207,232,255,0.45);
-      border-radius: 8px;
+      box-shadow: 0 0 0 f.rem(3) color-mix(in srgb, var(--brand-accent, #cfe8ff) 45%, transparent);
+      border-radius: f.rem(8);
     }
 
-    /* 접힘 아이콘 */
     &::after {
       content: "▸";
       position: absolute;
@@ -207,73 +193,51 @@
       top: -5%;
       transform: translateY(1px) rotate(0deg);
       transition: transform .2s ease;
-      opacity: 0.85;
+      opacity: .85;
     }
   }
 
-  /* 본문 — 초기에는 접힘 상태 (JS가 height 애니메이션 제어) */
   & > p {
     margin: 0;
-    color: var(--aei-fg-muted);
+    color: var(--text-inverse-muted, var(--aei-fg-muted));
     overflow: hidden;
     height: 0;
     opacity: 0;
     visibility: hidden;
-    transition:
-      height .28s ease,
-      opacity .2s ease,
-      visibility .2s ease;
+    transition: height .28s ease, opacity .2s ease, visibility .2s ease;
   }
 
-  /* 열린 상태 (JS가 .is-open 부여) */
-  &.is-open > p {
-    /* height는 JS가 px 값으로 계산하여 인라인 스타일로 설정 */
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* 열린 상태에서 아이콘 회전 */
-  &.is-open > strong::after {
-    transform: translateY(1px) rotate(90deg);
-  }
+  &.is-open > p { opacity: 1; visibility: visible; }
+  &.is-open > strong::after { transform: translateY(1px) rotate(90deg); }
 }
 
 /* =========================
-   타이포그래피 & 링크
+   타이포 & 링크
    ========================= */
 .homeContainer {
-  h1, h2, h3 { line-height: 1.3; margin: 0; }
+  h1, h2, h3 { line-height: 1.3; margin: 0; color: var(--text-inverse, var(--aei-fg)); }
   h1 { font-weight: 800; }
   h2 { font-weight: 700; }
   h3 { font-weight: 600; text-align: center; }
-  p { letter-spacing: 0.1px; }
+  p { letter-spacing: .1px; }
 
   a {
-    color: var(--aei-accent);
+    color: var(--brand-accent, var(--aei-accent));
     text-underline-offset: 2px;
     &:hover { text-decoration: underline; }
   }
 
-  strong { color: var(--aei-fg); }
-  span { color: var(--aei-fg-dim); }
+  strong { color: var(--text-inverse, var(--aei-fg)); }
+  span { color: var(--text-inverse-dim, var(--aei-fg-dim)); }
 }
 
 /* =========================
-   카드/패널 보조
+   보조 유틸
    ========================= */
-.is-muted { color: var(--aei-fg-muted); }
+.is-muted { color: var(--text-inverse-muted, var(--aei-fg-muted)); }
 .is-center {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-/* =========================
-   반응형 보정
-   ========================= */
-@media (max-width: 720px) {
-  .homeContainer { --aei-gap: 12px; --aei-gap-lg: 16px; }
-  .homeWelcomeSubTextBox { padding: 12px; }
-  .homeNoticeMenuListItem { padding: 12px; }
 }

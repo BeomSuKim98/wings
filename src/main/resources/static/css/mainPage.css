@@ -1,22 +1,298 @@
 @charset "UTF-8";
-:root {
-  --aei-bg: rgb(101.2, 101.2, 101.2);
-  --aei-fg: #ffffff;
-  --aei-fg-dim: rgba(255,255,255,0.85);
-  --aei-fg-muted: rgba(255,255,255,0.7);
-  --aei-accent: #cfe8ff;
-  --aei-border: rgba(255,255,255,0.15);
-  --aei-border-strong: rgba(255,255,255,0.25);
-  --aei-radius: 14px;
-  --aei-gap: 16px;
-  --aei-gap-lg: 24px;
-  --aei-maxw: 1100px;
-  --aei-line: 1.7;
-  --aei-shadow: 0 6px 20px rgba(0,0,0,0.25);
+/* =========================
+   메인 컨테이너
+   ========================= */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  /* 배경/글자: 새 토큰 + 레거시 fallback */
+  background: var(--bg-invert, var(--aei-bg));
+  color: var(--text-inverse, var(--aei-fg));
+  line-height: var(--aei-line);
+  padding: clamp(1rem, 3vw, 2rem);
+  gap: var(--gap-2, var(--aei-gap-lg));
+}
+.homeContainer > .homeWelcomeContainer, .homeContainer > .homeNoticeContainer {
+  width: 100%;
+  max-width: var(--aei-maxw);
+}
+.homeContainer img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* f.$menu-bg, f.$menu-border, f.$menu-link, f.$menu-link-hover
-   f.rem(), f.mq() 등을 사용합니다. */
+/* =========================
+   헤더 섹션
+   ========================= */
+.homeWelcomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-1, var(--aei-gap));
+}
+.homeWelcomeContainer .homeWelcomeText {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text-inverse, var(--aei-fg));
+}
+.homeWelcomeContainer .homeWelcomeSubTextBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  border: 1px solid var(--border-subtle, var(--aei-border));
+  border-radius: var(--radius-md, var(--aei-radius));
+  background: color-mix(in srgb, var(--text-inverse, #fff) 5%, transparent);
+  box-shadow: var(--shadow-lg, var(--aei-shadow));
+}
+.homeWelcomeContainer .homeWelcomeSubTextBox .homeWelcomeSubText {
+  margin: 0;
+  text-align: center;
+  color: var(--text-inverse-dim, var(--aei-fg-dim));
+  word-break: keep-all;
+}
+.homeWelcomeContainer .homeWelcomeContainer,
+.homeWelcomeContainer .WelcomeContainerImgBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.homeWelcomeContainer .WelcomeContainerImg {
+  object-fit: contain;
+}
+
+/* =========================
+   공지 섹션
+   ========================= */
+.homeNoticeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-1, var(--aei-gap));
+}
+.homeNoticeContainer .homeNotice {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--radius-md, var(--aei-radius)) - 0.375rem);
+  background: color-mix(in srgb, var(--text-inverse, #fff) 6%, transparent);
+  border: 1px solid var(--border-subtle, var(--aei-border));
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: var(--text-inverse, var(--aei-fg));
+}
+
+/* 공지 메뉴 리스트 */
+.homeNoticeMenuList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2, var(--aei-gap-lg));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 각 항목 블록 */
+.homeNoticeMenuListItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: clamp(0.75rem, 2vw, 1.125rem);
+  border: 1px solid var(--border-subtle, var(--aei-border));
+  border-radius: var(--radius-md, var(--aei-radius));
+  background: color-mix(in srgb, var(--text-inverse, #fff) 4%, transparent);
+  box-shadow: var(--shadow-lg, var(--aei-shadow));
+}
+.homeNoticeMenuListItem > :first-child {
+  display: block;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px dashed var(--border-subtle, var(--aei-border));
+}
+.homeNoticeMenuListItem .homeNoticeMenuListItemBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.homeNoticeMenuListItem .homeNoticeMenuListItemBox .NoticeTitle {
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-inverse, var(--aei-fg));
+}
+.homeNoticeMenuListItem .homeNoticeMenuListItemBox .NoticeContent,
+.homeNoticeMenuListItem .homeNoticeMenuListItemBox .noticeContent {
+  margin: 0;
+  color: var(--text-inverse-dim, var(--aei-fg-dim));
+}
+
+/* =========================
+   접힘/펼침(설명 리스트)
+   ========================= */
+.noticeContentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  list-style: none;
+  margin: 0.375rem 0 0;
+  padding: 0;
+}
+.noticeContentList > strong {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 0.375rem;
+  color: var(--text-inverse, var(--aei-fg));
+  letter-spacing: 0.3px;
+}
+
+.noticeContentListItem {
+  display: flex;
+  flex-direction: column;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border-subtle, var(--aei-border));
+  border-radius: calc(var(--radius-md, var(--aei-radius)) - 0.375rem);
+  background: color-mix(in srgb, var(--text-inverse, #fff) 3%, transparent);
+}
+.noticeContentListItem > strong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: 1.375rem;
+  outline: none;
+}
+.noticeContentListItem > strong:focus-visible {
+  box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--brand-accent, #cfe8ff) 45%, transparent);
+  border-radius: 0.5rem;
+}
+.noticeContentListItem > strong::after {
+  content: "▸";
+  position: absolute;
+  right: 0;
+  top: -5%;
+  transform: translateY(1px) rotate(0deg);
+  transition: transform 0.2s ease;
+  opacity: 0.85;
+}
+.noticeContentListItem > p {
+  margin: 0;
+  color: var(--text-inverse-muted, var(--aei-fg-muted));
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: height 0.28s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+.noticeContentListItem.is-open > p {
+  opacity: 1;
+  visibility: visible;
+}
+.noticeContentListItem.is-open > strong::after {
+  transform: translateY(1px) rotate(90deg);
+}
+
+/* =========================
+   타이포 & 링크
+   ========================= */
+.homeContainer h1, .homeContainer h2, .homeContainer h3 {
+  line-height: 1.3;
+  margin: 0;
+  color: var(--text-inverse, var(--aei-fg));
+}
+.homeContainer h1 {
+  font-weight: 800;
+}
+.homeContainer h2 {
+  font-weight: 700;
+}
+.homeContainer h3 {
+  font-weight: 600;
+  text-align: center;
+}
+.homeContainer p {
+  letter-spacing: 0.1px;
+}
+.homeContainer a {
+  color: var(--brand-accent, var(--aei-accent));
+  text-underline-offset: 2px;
+}
+.homeContainer a:hover {
+  text-decoration: underline;
+}
+.homeContainer strong {
+  color: var(--text-inverse, var(--aei-fg));
+}
+.homeContainer span {
+  color: var(--text-inverse-dim, var(--aei-fg-dim));
+}
+
+/* =========================
+   보조 유틸
+   ========================= */
+.is-muted {
+  color: var(--text-inverse-muted, var(--aei-fg-muted));
+}
+
+.is-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 런타임 변경 가능한 디자인 토큰 — :root 기본값 */
+:root {
+  /* 색상 (사용자 변경 가능) */
+  --text-primary: #0f172a; /* 본문 글자색 */
+  --text-secondary: #475569; /* 보조 텍스트 */
+  --text-inverse: #ffffff; /* 어두운 배경 위 텍스트 */
+  --bg-surface: #f6f7f9; /* 기본 배경 */
+  --bg-surface-2: #e9ecf2; /* 보조 배경 */
+  --bg-invert: rgb(101,101,101); /* 반전 배경(기존 aei-bg 근사) */
+  /* 메뉴(기존 호환용) — 필요 시 제거 가능 */
+  --menu-bg: #6e6e6e;
+  --menu-border: #b8b8b8;
+  --menu-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  --menu-link: #f1f1f1;
+  --menu-link-hover: #0f172a;
+  --menu-hover-bg: #eef2f7;
+  /* 글자 크기 스케일 (사용자 변경 가능) */
+  --fs-100: 0.75rem;
+  --fs-200: 0.875rem;
+  --fs-300: 1rem; /* base */
+  --fs-400: 1.125rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 1.875rem;
+  /* 여백/라운드(필요 시 일부만 사용자 변경 가능하도록) */
+  --radius-md: 14px;
+  --gap-1: 16px;
+  --gap-2: 24px;
+  /* 음영/보더 */
+  --border-subtle: rgba(255,255,255,0.15);
+  --border-strong: rgba(255,255,255,0.25);
+  --shadow-lg: 0 6px 20px rgba(0,0,0,0.25);
+  /* 최대 폭/라인하이트 등 */
+  --aei-maxw: 1100px;
+  --aei-line: 1.7;
+}
+
+/* 선택: 다크/하이콘트라스트 등 테마도 이렇게 덮어쓰기 가능
+[data-theme="dark"] {
+  --bg-surface: #121318;
+  --text-primary: #e5e7eb;
+}
+*/
 /* =========================
    Tab Bar (Top)
    ========================= */
@@ -27,9 +303,10 @@ body {
 #TabmenuTop {
   display: flex;
   align-items: flex-end; /* 탭 하단 기준 정렬 */
-  background: rgb(32, 32, 32); /* 메뉴 톤과 유사한 어두운 바 */
-  border-bottom: 1px solid #b8b8b8;
-  /* 모바일(≤320px)에서 탭 간격 소폭 축소 */
+  /* 어두운 바: 인버스 배경을 살짝 더 어둡게 */
+  background: color-mix(in srgb, var(--bg-invert, #202020) 85%, black 15%);
+  border-bottom: 1px solid var(--border-strong, #b8b8b8);
+  /* 모바일(≤xs)에서 탭 간격 소폭 축소 */
 }
 #TabmenuTop .tab {
   flex: 0 0 auto; /* 폭 고정(내용만큼), 줄바꿈 없음 */
@@ -37,20 +314,22 @@ body {
   align-items: baseline;
   gap: 0.5rem;
   padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
-  color: #f1f1f1;
+  font-size: var(--fs-200); /* ~14px 급 */
+  color: var(--text-inverse, #f1f1f1);
   cursor: pointer;
   user-select: none;
   transition: background-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
   /* 닫기 버튼 */
 }
 #TabmenuTop .tab:hover {
-  background: rgb(124.5, 124.5, 124.5);
-  color: #0f172a;
+  /* 인버스 배경에 화이트 10% 섞어 약간 밝게 */
+  background: color-mix(in srgb, var(--bg-invert, #6e6e6e) 90%, white 10%);
+  color: var(--text-primary, #0f172a);
 }
 #TabmenuTop .tab.active {
-  background: #6e6e6e; /* 활성 탭은 메인 톤으로 하이라이트 */
-  color: #f1f1f1;
+  /* 활성 탭은 메인 톤 */
+  background: var(--bg-invert, #6e6e6e);
+  color: var(--text-inverse, #f1f1f1);
 }
 #TabmenuTop .tab .tab-close {
   width: 1.125rem;
@@ -65,10 +344,10 @@ body {
 }
 #TabmenuTop .tab .tab-close:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.06);
+  background: color-mix(in srgb, white 6%, transparent);
 }
 #TabmenuTop .tab .tab-close:focus-visible {
-  outline: 2px solid #b8b8b8;
+  outline: 2px solid var(--border-strong, #b8b8b8);
   outline-offset: 2px;
 }
 @media (max-width: 320px) {
@@ -77,7 +356,7 @@ body {
   }
   #TabmenuTop .tab {
     padding: 0.375rem 0.625rem;
-    font-size: 0.8125rem;
+    font-size: var(--fs-200); /* 유지 */
   }
 }
 
@@ -86,11 +365,12 @@ body {
    ========================= */
 #TabmenuBottom {
   border-top: none; /* 탭과 자연스럽게 연결 */
-  background: rgb(101.2, 101.2, 101.2); /* 내용 영역 배경 */
-  color: #f1f1f1;
+  /* 내용 영역: 인버스 배경에 블랙 8% 섞어 약간 더 어둡게 */
+  background: color-mix(in srgb, var(--bg-invert, #6e6e6e) 92%, black 8%);
+  color: var(--text-inverse, #f1f1f1);
   padding: 1rem;
   min-height: 10rem;
-  /* 내부 공통 컨텐츠 여백/타이포 기본값 */
+  /* 반응형 */
 }
 #TabmenuBottom .tab-pane[hidden] {
   display: none;
