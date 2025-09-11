@@ -1,4 +1,4 @@
-package com.wings.AEI;
+package com.wings.aei;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

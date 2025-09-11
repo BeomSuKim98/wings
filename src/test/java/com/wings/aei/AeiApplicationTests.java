@@ -1,4 +1,4 @@
-package com.wings.AEI;
+package com.wings.aei;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

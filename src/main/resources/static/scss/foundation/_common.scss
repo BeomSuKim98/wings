@@ -1,0 +1,9 @@
+// 모든 페이지 공용 사용자 디자인
+
+.prime-Box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: f.rem(6);
+	padding: clamp(f.rem(12), 2vw, f.rem(20));
+	}

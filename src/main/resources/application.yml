@@ -1,12 +1,21 @@
+# application-prod.yml
 spring:
-  output:
-    ansi:
-      enabled: always # 콘솔 색상 변경
-  application:
-    name: basic1
-
   thymeleaf:
-    cache: false
-    prefix: file:src/main/resources/templates/ # 템플릿 파일 경로
-#server:
-#  port: 8030
+    cache: true
+    prefix: classpath:/templates/
+  datasource:
+    url: jdbc:mariadb://${DB_HOST:db}:3306/${DB_NAME:app1_prod}?useUnicode=true&characterEncoding=utf8mb4
+    username: ${DB_USER:appuser}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      idle-timeout: 600000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+  jpa:
+    hibernate.ddl-auto: validate
+    show-sql: false
+logging.level:
+  org.hibernate.SQL: info
+  org.hibernate.orm.jdbc.bind: off
