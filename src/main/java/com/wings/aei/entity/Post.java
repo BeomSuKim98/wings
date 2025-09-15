@@ -45,7 +45,8 @@ public class Post {
     private String anonDisplayName;      // 예: "익명", "Guest"
 
     @Column(name = "allow_comment", nullable = false)
-    private boolean allowComment;
+    @Builder.Default
+    private boolean allowComment = true;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
